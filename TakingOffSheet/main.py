@@ -3093,27 +3093,27 @@ def usr_log_in():
 
                 # button back
                 calculation = Button(tko, text="BACK", width=21, command=back)
-                calculation.place(x=625, y=570)
+                calculation.place(x=625, y=480)
 
                 # button delete
                 calculation = Button(
                     tko, text="CLEAR EXCEL SHEET", width=21, command=delete)
-                calculation.place(x=625, y=540)
+                calculation.place(x=625, y=510)
 
                 # button save to excel
                 save_excel = Button(
                     tko, text="SAVE TO EXCEL", command=save, width=21)
-                save_excel.place(x=625, y=510)
+                save_excel.place(x=625, y=540)
 
                 # button save to pdf
                 save_pdf = Button(
                     tko, text="SAVE TO PDF", command=save_pdf, width=21)
-                save_pdf.place(x=625, y=480)
+                save_pdf.place(x=625, y=570)
 
                 # button clear to calculation
                 clear_calculation = Button(
                     tko, text="CLEAR CALCULATION", command=clear_calculat, width=21)
-                clear_calculation.place(x=625, y=450)
+                clear_calculation.place(x=625, y=600)
 
                 # canvas
                 def locate_xy(event):
