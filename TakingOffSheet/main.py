@@ -12,6 +12,8 @@ import pickle
 from PIL import ImageGrab
 from openpyxl.reader.excel import load_workbook
 import os.path
+import pandas as pd
+import pdfkit
 
 # main window
 window = Tk()
@@ -2294,6 +2296,9 @@ def usr_log_in():
                     if MsgBox == 'yes':
                         os.remove("TAKING_OFF.xlsx")
 
+                def save_pdf():
+                    save()
+
                 def save():
                     filepath = "my_image.png"
                     ss = ImageGrab.grab(bbox=(595, 193, 898, 658))
@@ -2694,7 +2699,9 @@ def usr_log_in():
                             pass
 
                         file.save("TAKING_OFF.xlsx")
-
+                        df = pd.read_excel("TAKING_OFF.xlsx")
+                        df.to_html("TAKING_OFF.html")
+                        pdfkit.from_file("TAKING_OFF.html", "TAKING_OFF.pdf")
                         tko.destroy()
                         root.deiconify()
 
@@ -3098,10 +3105,15 @@ def usr_log_in():
                     tko, text="SAVE TO EXCEL", command=save, width=21)
                 save_excel.place(x=625, y=510)
 
+                # button save to pdf
+                save_pdf = Button(
+                    tko, text="SAVE TO PDF", command=save_pdf, width=21)
+                save_pdf.place(x=625, y=480)
+
                 # button clear to calculation
                 clear_calculation = Button(
                     tko, text="CLEAR CALCULATION", command=clear_calculat, width=21)
-                clear_calculation.place(x=625, y=480)
+                clear_calculation.place(x=625, y=450)
 
                 # canvas
                 def locate_xy(event):
