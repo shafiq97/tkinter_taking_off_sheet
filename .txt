@@ -1,0 +1,4 @@
+Please run the following command at Command Prompt before open the program 
+
+pip install openpyxl
+pip install pillow
